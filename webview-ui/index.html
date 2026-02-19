@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tRPC Explorer</title>
+  </head>
+  <body>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Filter procedures…" />
+      <button class="icon-btn" id="collapse-all" title="Collapse all">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M9 9H4v1h5V9z" />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M5 3l1-1h7l1 1v7l-1 1h-2v2l-1 1H3l-1-1V6l1-1h2V3zm1 2h4l1 1v4h2V3H6v2zm4 1H3v7h7V6z"
+          />
+        </svg>
+      </button>
+      <button class="icon-btn" id="expand-all" title="Expand all">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M9 9H7v2H6V9H4V8h2V6h1v2h2v1z" />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M5 3l1-1h7l1 1v7l-1 1h-2v2l-1 1H3l-1-1V6l1-1h2V3zm1 2h4l1 1v4h2V3H6v2zm4 1H3v7h7V6z"
+          />
+        </svg>
+      </button>
+      <button class="icon-btn" id="refresh-btn" title="Refresh">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.681 3A6 6 0 0 1 14 8h-1a5 5 0 0 0-9.27-2.6H6v1H2.5l.5-.5V2h1v1zm6.638 10A6 6 0 0 1 2 8h1a5 5 0 0 0 9.27 2.6H10v-1h3.5l-.5.5V14h-1v-1z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

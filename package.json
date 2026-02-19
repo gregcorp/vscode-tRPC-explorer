@@ -1,0 +1,83 @@
+{
+  "name": "trpc-explorer",
+  "displayName": "tRPC-explorer",
+  "description": "Visualise your tRPC API in a tree view, with support for both TypeScript and JavaScript projects. Explore your API endpoints, view their input and output types, and easily navigate through your tRPC routes.",
+  "version": "0.0.1",
+  "publisher": "gregcorp",
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "url": "https://github.com/gregcorp/vscode-tRPC-explorer"
+  },
+  "icon": "public/icon.png",
+  "activationEvents": [],
+  "main": "./dist/main/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "trpc-explorer.refresh",
+        "title": "Refresh tRPC Explorer",
+        "icon": "$(refresh)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "trpc-explorer",
+          "title": "tRPC Explorer",
+          "icon": "public/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "trpc-explorer": [
+        {
+          "type": "webview",
+          "id": "trpc-explorer-view",
+          "name": "tRPC Explorer",
+          "icon": "public/icon.svg"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "disabled_vscode:prepublish": "pnpm package",
+    "compile": "pnpm check-types && pnpm lint && pnpm build:webview && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "watch:webview": "vite build --watch webview-ui",
+    "build:webview": "vite build webview-ui",
+    "package": "pnpm run check-types && pnpm run lint && pnpm run build:webview && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "clean": "rimraf dist out",
+    "publish": "pnpm vscode:prepublish && vsce publish"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.109.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.27.2",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0",
+    "vite": "^7.3.1",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "rimraf": "^6.1.3",
+    "zod": "^4.3.6",
+    "zod-to-ts": "^2.0.0"
+  }
+}

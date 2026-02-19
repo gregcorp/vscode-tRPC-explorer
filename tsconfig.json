@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2023",
+    "moduleResolution": "bundler",
+    "sourceMap": true,
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "webview-ui",
+    "dist",
+    "out",
+    "node_modules",
+    "test-fixtures",
+    "example"
+  ]
+}
